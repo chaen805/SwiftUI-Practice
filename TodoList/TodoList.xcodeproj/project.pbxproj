@@ -14,6 +14,10 @@
 		3004126C299170C700ABA283 /* MainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004126B299170C700ABA283 /* MainTabView.swift */; };
 		3004126E299170E400ABA283 /* TabMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004126D299170E400ABA283 /* TabMenu.swift */; };
 		300412712991710600ABA283 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300412702991710600ABA283 /* TodoView.swift */; };
+		3004127329921E0100ABA283 /* AddListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004127229921E0100ABA283 /* AddListView.swift */; };
+		30041277299227DC00ABA283 /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30041276299227DC00ABA283 /* CategoryView.swift */; };
+		3004127B29922F4600ABA283 /* TodoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004127A29922F4600ABA283 /* TodoViewModel.swift */; };
+		3004127D29922F7B00ABA283 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3004127C29922F7B00ABA283 /* Category.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +29,10 @@
 		3004126B299170C700ABA283 /* MainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabView.swift; sourceTree = "<group>"; };
 		3004126D299170E400ABA283 /* TabMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenu.swift; sourceTree = "<group>"; };
 		300412702991710600ABA283 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
+		3004127229921E0100ABA283 /* AddListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddListView.swift; sourceTree = "<group>"; };
+		30041276299227DC00ABA283 /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
+		3004127A29922F4600ABA283 /* TodoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoViewModel.swift; sourceTree = "<group>"; };
+		3004127C29922F7B00ABA283 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				300412592991703F00ABA283 /* TodoListApp.swift */,
-				300412672991706200ABA283 /* TodoItem.swift */,
 				300412692991709D00ABA283 /* Scenes */,
 				3004125D2991704100ABA283 /* Assets.xcassets */,
 				3004125F2991704100ABA283 /* Preview Content */,
@@ -95,7 +102,12 @@
 		3004126F299170F800ABA283 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
+				300412672991706200ABA283 /* TodoItem.swift */,
 				300412702991710600ABA283 /* TodoView.swift */,
+				3004127229921E0100ABA283 /* AddListView.swift */,
+				30041276299227DC00ABA283 /* CategoryView.swift */,
+				3004127C29922F7B00ABA283 /* Category.swift */,
+				3004127A29922F4600ABA283 /* TodoViewModel.swift */,
 			);
 			path = Todo;
 			sourceTree = "<group>";
@@ -170,8 +182,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3004127B29922F4600ABA283 /* TodoViewModel.swift in Sources */,
+				3004127D29922F7B00ABA283 /* Category.swift in Sources */,
 				3004126E299170E400ABA283 /* TabMenu.swift in Sources */,
+				30041277299227DC00ABA283 /* CategoryView.swift in Sources */,
 				300412682991706200ABA283 /* TodoItem.swift in Sources */,
+				3004127329921E0100ABA283 /* AddListView.swift in Sources */,
 				300412712991710600ABA283 /* TodoView.swift in Sources */,
 				3004125A2991703F00ABA283 /* TodoListApp.swift in Sources */,
 				3004126C299170C700ABA283 /* MainTabView.swift in Sources */,

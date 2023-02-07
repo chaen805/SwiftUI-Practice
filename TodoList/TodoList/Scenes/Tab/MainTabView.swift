@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct MainTabView: View {
+    @ObservedObject var viewModel = TodoViewModel()
+    
     var body: some View {
         TabView {
-            TodoView()
+            TodoView(todoItem: $viewModel.todoItem)
                 .tabItem {
                     TabMenu.toDo.imageItem
                     TabMenu.toDo.textItem

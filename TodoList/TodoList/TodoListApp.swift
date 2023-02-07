@@ -12,6 +12,7 @@ struct TodoListApp: App {
     var body: some Scene {
         WindowGroup {
             MainTabView()
+                .accentColor(.purple)
         }
     }
 }

@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct TodoItem: Identifiable {
-    let task: String
+    var task: String
+    var category: String
     
     let id = UUID()
 }

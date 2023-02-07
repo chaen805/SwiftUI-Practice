@@ -8,14 +8,18 @@
 import SwiftUI
 
 struct TodoView: View {
+//    @ObservedObject var viewModel = TodoViewModel()
+    @Binding var todoItem: [TodoItem]
+    
     @State private var addListModal = false
     
     var body: some View {
         NavigationView {
             List {
                 // To Do - 실제 입력 받아서 만들 수 있도록 수정해야함
-                Text("고양이 화장실 치우기")
-                Text("고양이 놀아주기")
+                ForEach(todoItem) { item in
+                    Text(item.task)
+                }
             }.listStyle(PlainListStyle())
             .navigationBarTitle(Text("오늘의 할 일"))
             .navigationBarItems(leading: Button(action: {}) {
@@ -38,7 +42,7 @@ struct AddListModalView: View {
         
         var body: some View {
             NavigationView {
-                Text("목록 추가 화면")
+                AddListView()
                     .navigationBarTitle(Text("목록 추가"), displayMode: .inline)
                     .navigationBarItems(leading: Button(action: {
                         presentation.wrappedValue.dismiss()
@@ -52,8 +56,8 @@ struct AddListModalView: View {
         }
 }
 
-struct TodoView_Previews: PreviewProvider {
-    static var previews: some View {
-        TodoView()
-    }
-}
+//struct TodoView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodoView(todoItem: $viewModel.todoItem)
+//    }
+//}
