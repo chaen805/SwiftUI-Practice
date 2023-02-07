@@ -102,11 +102,11 @@
 		3004126F299170F800ABA283 /* Todo */ = {
 			isa = PBXGroup;
 			children = (
-				300412672991706200ABA283 /* TodoItem.swift */,
 				300412702991710600ABA283 /* TodoView.swift */,
 				3004127229921E0100ABA283 /* AddListView.swift */,
 				30041276299227DC00ABA283 /* CategoryView.swift */,
 				3004127C29922F7B00ABA283 /* Category.swift */,
+				300412672991706200ABA283 /* TodoItem.swift */,
 				3004127A29922F4600ABA283 /* TodoViewModel.swift */,
 			);
 			path = Todo;

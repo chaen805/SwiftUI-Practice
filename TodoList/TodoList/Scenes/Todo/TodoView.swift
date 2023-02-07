@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct TodoView: View {
-//    @ObservedObject var viewModel = TodoViewModel()
     @Binding var todoItem: [TodoItem]
-    
+//    @ObservedObject var viewModel = TodoViewModel()
     @State private var addListModal = false
     
     var body: some View {
@@ -20,40 +19,28 @@ struct TodoView: View {
                 ForEach(todoItem) { item in
                     Text(item.task)
                 }
-            }.listStyle(PlainListStyle())
+                .onDelete(perform: delete)
+                .onMove(perform: onMove)
+            }
+            .listStyle(PlainListStyle())
+            
             .navigationBarTitle(Text("오늘의 할 일"))
-            .navigationBarItems(leading: Button(action: {}) {
-                Text("편집")
-            })
-            .navigationBarItems(trailing: Button(action: {
-                self.addListModal = true}){
+            .navigationBarItems(leading: EditButton())
+            .navigationBarItems(trailing: Button(action: { self.addListModal = true }) {
                 Image(systemName: "plus")
             }
                 .sheet(isPresented: self.$addListModal) {
-                    AddListModalView()
-                            }
-            )
+                    AddListView(todoItem: self.$todoItem)
+                })
         }
     }
-}
-
-struct AddListModalView: View {
-    @Environment(\.presentationMode) var presentation
-        
-        var body: some View {
-            NavigationView {
-                AddListView()
-                    .navigationBarTitle(Text("목록 추가"), displayMode: .inline)
-                    .navigationBarItems(leading: Button(action: {
-                        presentation.wrappedValue.dismiss()
-                    }){
-                        Text("취소")
-                    })
-                    .navigationBarItems(trailing: Button(action: {}) {
-                        Text("저장")
-                    })
-            }.accentColor(.purple)
-        }
+    
+    private func delete(at offsets: IndexSet) {
+        todoItem.remove(atOffsets: offsets)
+    }
+    private func onMove(source: IndexSet, destination: Int) {
+        todoItem.move(fromOffsets: source, toOffset: destination)
+    }
 }
 
 //struct TodoView_Previews: PreviewProvider {
