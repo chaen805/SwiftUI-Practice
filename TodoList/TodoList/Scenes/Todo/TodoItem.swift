@@ -11,14 +11,8 @@ struct TodoItem: Identifiable {
     var category: String
     var task: String
     var memo: String
-    var deadline: String = "2359"
-    
-//    init(category: String, task: String, memo: String, deadline: String) {
-//        self.category   = category
-//        self.task = task
-//        self.memo  = memo
-//        self.deadline = "2359"
-//    }
+    let today: String
+    var deadline: String = "23:59"
     
     let id = UUID()
 }

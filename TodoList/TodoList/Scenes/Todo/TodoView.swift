@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TodoView: View {
     @Binding var todoItem: [TodoItem]
-//    @ObservedObject var viewModel = TodoViewModel()
+    @ObservedObject var viewModel = TodoViewModel()
     @State private var addListModal = false
     
     var body: some View {
@@ -17,7 +17,9 @@ struct TodoView: View {
             List {
                 // To Do - 실제 입력 받아서 만들 수 있도록 수정해야함
                 ForEach(todoItem) { item in
-                    Text(item.task)
+                    NavigationLink(destination: TodoDetailView(todoItem: item)) {
+                        Text(item.task)
+                    }
                 }
                 .onDelete(perform: delete)
                 .onMove(perform: onMove)
@@ -30,7 +32,7 @@ struct TodoView: View {
                 Image(systemName: "plus")
             }
                 .sheet(isPresented: self.$addListModal) {
-                    AddListView(todoItem: self.$todoItem)
+                    AddListView(todoItem: self.$todoItem, category: self.$viewModel.category)
                 })
         }
     }
@@ -40,6 +42,21 @@ struct TodoView: View {
     }
     private func onMove(source: IndexSet, destination: Int) {
         todoItem.move(fromOffsets: source, toOffset: destination)
+    }
+}
+
+struct TodoDetailView: View {
+    let todoItem: TodoItem
+    
+    // To do : test를 위해 모든 변수를 보이도록 해놓음 추후 수정 필요
+    var body: some View {
+        List {
+            Text("Category: \(todoItem.category)")
+            Text("Task: \(todoItem.task)")
+            Text("Memo: \(todoItem.memo)")
+            Text("Date: \(todoItem.today)")
+            Text("Deadline: \(todoItem.deadline)")
+        }
     }
 }
 
