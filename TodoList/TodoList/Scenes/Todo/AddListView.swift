@@ -27,20 +27,29 @@ struct AddListView: View {
                 NavigationLink(destination: CategoryView(category: self.$viewModel.category, selectedCategory: self.$selectedCategory)) {
                     HStack {
                         Text("카테고리")
+                            .fontWeight(.semibold)
                         Spacer()
                         Text(selectedCategory)
                     }
                 }
-//                Picker("", selection: $selectedCategory) {
-//                    ForEach(category) { tag in
-//                        Text(tag.category).tag(tag.category)
-//                    }
-//                }
-                TextField("제목", text: self.$task)
-                    .autocorrectionDisabled(true)
-                TextField("메모", text: self.$memo)
-                    .autocorrectionDisabled(true)
+                HStack {
+                    Text("할 일")
+                        .fontWeight(.semibold)
+                    Spacer()
+                    TextField("제목", text: self.$task)
+                        .autocorrectionDisabled(true)
+                        .multilineTextAlignment(.trailing)
+                }
+                HStack {
+                    Text("메모")
+                        .fontWeight(.semibold)
+                    Spacer()
+                    TextField("추가 내용", text: self.$memo)
+                        .autocorrectionDisabled(true)
+                        .multilineTextAlignment(.trailing)
+                }
                 Toggle("마감 시간", isOn: $deadlineOn)
+                    .fontWeight(.semibold)
                 if deadlineOn {
                     DatePicker("", selection: $currentDate, displayedComponents: .hourAndMinute)
                         .datePickerStyle(WheelDatePickerStyle())
