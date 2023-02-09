@@ -11,13 +11,10 @@ class TodoViewModel: ObservableObject {
     // 할 일 저장
     @Published var todoItem: [TodoItem] = []
     
-    // 카테고리 저장
+    // 카테고리 목록
     @Published var category: [Category] = [
-        Category(category: "학교"),
-        Category(category: "집안일"),
-        Category(category: "루틴")
+        Category(category: "루틴"),
+        Category(category: "업무"),
+        Category(category: "가사")
     ]
-    
-    // 카테고리 선택을 전달하기 위한 변수
-//    @Published var selectedCategory: String = ""
 }

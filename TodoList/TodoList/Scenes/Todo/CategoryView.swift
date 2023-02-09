@@ -11,6 +11,8 @@ struct CategoryView: View {
     @Binding var category: [Category]
     @Binding var selectedCategory: String
     
+    @State private var newCategory = ""
+    
     var body: some View {
         NavigationView {
             List {
@@ -21,11 +23,27 @@ struct CategoryView: View {
                 }
                 .pickerStyle(.inline)
             }
+            .toolbar {
+                Button(action: {}) {
+                    Image(systemName: "plus")
+                }
+            }
             .navigationBarTitle(Text("카테고리"), displayMode: .inline)
-            // 카테고리 추가 창 필요 네비개이션 바 아이템 - trailing으로 생성, 새로운 뷰나 모달 뷰 아닌 알림 창으로 하면 될듯..
         }
     }
 }
+
+//struct AddCategoryView: View {
+//    @Binding var category: String
+//
+//    var body: some View {
+//        VStack {
+//            Text("카테고리 이름을 입력하세요")
+//            TextField("카테고리 이름", text: $category)
+//        }
+//    }
+
+
 
 //struct CategoryView_Previews: PreviewProvider {
 //    static var previews: some View {
